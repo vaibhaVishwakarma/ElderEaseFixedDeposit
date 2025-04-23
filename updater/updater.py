@@ -21,4 +21,3 @@ while True:
     except Exception as e:
         print("ICICI  |  Failed updating ICICI data | UNREACHABLE ❌")
 
-    time.sleep(30*MINUTES)

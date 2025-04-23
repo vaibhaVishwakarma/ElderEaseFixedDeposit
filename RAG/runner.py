@@ -9,23 +9,25 @@ from supabase import create_client, Client
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+env_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+load_dotenv(dotenv_path=env_path)
 # Initialize Supabase Client
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_API_URL = os.getenv("OPENROUTER_API_URL")
+CUSTOM_SEARCH_API_KEY = os.getenv("CUSTOM_SEARCH_API_KEY")
+CUSTOM_SEARCH_ENGINE_ID = os.getenv('CUSTOM_SEARCH_ENGINE_ID')
+
+LIMIT_PAGES = 1
+MODEL_NAME = "microsoft/mai-ds-r1:free"
+BUCKET_NAME = "pdtracker-bucket"
 
 supabase_client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Define storage details
-BUCKET_NAME = "pdtracker-bucket"
 
-
-
-
-
-load_dotenv()
-
-MINUTES = 60
+load_dotenv(dotenv_path = "../.env")
 
 banks = [
     "HDFC",
@@ -45,8 +47,6 @@ def get_terms_raw():
             return ""
         return res
 
-    CUSTOM_SEARCH_API_KEY = os.getenv("CUSTOM_SEARCH_API_KEY")
-    CUSTOM_SEARCH_ENGINE_ID = os.getenv('CUSTOM_SEARCH_ENGINE_ID')
     def get_terms_links(bank_name):
         search_query = f"{bank_name} fixed Deposites terms and conditions and penalities"
         url = f"https://www.googleapis.com/customsearch/v1?q={search_query}&key={CUSTOM_SEARCH_API_KEY}&cx={CUSTOM_SEARCH_ENGINE_ID}"
@@ -57,7 +57,7 @@ def get_terms_raw():
         links = []
         for item in data.get("items", []):
             links.append(item["link"])
-        return links
+        return links[:LIMIT_PAGES]
 
     for bank in banks:
         with open(f"DATA/RAW/{bank}_output.md", "w",encoding="utf-8") as file: 
@@ -65,8 +65,6 @@ def get_terms_raw():
                 file.write(md.markdown(get_md(link)))
 
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_API_URL = os.getenv("OPENROUTER_API_URL")
 
 def read_markdown_file(filename):
     with open(filename, "r", encoding="utf-8") as file:
@@ -79,15 +77,17 @@ def clean_text_with_llm(text):
     }
     
     payload = {
-        "model": "google/gemini-2.0-flash-lite-preview-02-05:free",  # Use a suitable model from OpenRouter
+        "model": MODEL_NAME,  # Use a suitable model from OpenRouter
         "messages": [
-            {"role": "system", "content": """You are textual garbage removal agent, you must protect the terms and conditions 
+            {"role": "system", "content": """Objective:You are textual garbage removal agent, you must protect the terms and conditions 
              passed to you, make sure no modification is made and mustremove any stand alone, un-contextual words. 
-             you may also encounter some special characters such as emoji, letters other than alphabets , digits , brackets or spaces """},
+             you may also encounter some special characters such as emoji, letters other than alphabets , digits , brackets or spaces.
+             Note: in the end you present the sentances which make sence and are likely to be part of terms and condition policy, in the exact words as it was given.
+             Aim: reduce jargons or garbage and return the same with minimal loss of textual knowledge."""},
 
-            {"role": "user", "content": f"Clean this text and remove garbage values:\n{text}"}
+            {"role": "user", "content": f"the following is the terms and condition policy with lots of jargons, return the cleaned version of it:\n{text}"}
         ],
-        "temperature": 0.2
+        "temperature": 0.6
     }
     
     response = requests.post(OPENROUTER_API_URL, headers=headers, json=payload)
@@ -117,14 +117,18 @@ def cleaner(bank_name):
     # Clean using LLM
     length = len(original_text)
     
-    ps = [i for i in range(0,length,(int(10e5)-1000))]
-    parts = [original_text[ps[i]:ps[i+1]] for i in range(len(ps)-1)] if length>10e5 else [original_text]
-    parts.append(original_text[ps[-1]:])
+    try :
+        ps = [i for i in range(0,length,(int(10e5)-1000))]
+        parts = [original_text[ps[i]:ps[i+1]] for i in range(len(ps)-1)] if length>10e5 else [original_text]
+        parts.append(original_text[ps[-1]:])
+    except Exception as e: 
+        print(e)
+
 
     cleaned_text = ""
     for part_text in parts:
         if part_text is None : continue
-        cleaned_text += clean_text_with_llm(part_text)
+        cleaned_text += clean_text_with_llm(part_text) or ""
     
     if cleaned_text:
         # Write to new file
@@ -157,7 +161,7 @@ if __name__ == "__main__":
 
         update_md()    
 
-        time.sleep(60*MINUTES)
+        
 
 
 

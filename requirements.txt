@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pydantic
+supabase
+python-dotenv
+groq
+langchain
+langchain-community
+langchain-groq
+chromadb
+sentence-transformers
+crewai_tools
+python-dotenv
+tf-keras

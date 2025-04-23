@@ -12,7 +12,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from supabase import create_client, Client
 
-load_dotenv()
+load_dotenv(dotenv_path = "../.env")
 
 URL = os.getenv("SUPABASE_URL")
 KEY = os.getenv("SUPABASE_KEY")

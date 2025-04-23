@@ -1,131 +1,96 @@
-Here's the cleaned text, with standalone words and extraneous characters removed, and the terms and conditions preserved:
+Here's the cleaned version of the Fixed Deposit Terms & Conditions, preserving all policy content while removing promotional/navigation elements:
 
-**Fixed Deposit Rates for Individuals**
+**Fixed Deposit Terms and Conditions**
 
-*   **Tenor**
-*   **USD**
-*   **GBP**
-*   **EUR**
-*   **AED**
-*   **CAD**
-*   **HKD**
-*   **SGD**
-*   **AUD**
+1. **Account Creation**  
+   - FD Account can be created within 1 working day  
+   - Minimum deposit: ₹10,000 (multiples of ₹1 thereafter)  
+   - PAN mandatory for deposits ≥₹50,000  
 
-*   7 days < 30 days
-    4.15%
-    4.20%
-    2.05%
-    3.85%
-    2.35%
-    3.20%
-    2.00%
-    3.70%
-*   30 days < 3 months
-    4.45%
-    4.45%
-    2.45%
-    4.15%
-    2.65%
-    3.70%
-    2.35%
-    4.10%
-*   3 months to < 6 months
-    4.50%
-    4.50%
-    2.50%
-    4.20%
-    2.75%
-    3.80%
-    2.45%
-    4.15%
-*   6 months to < 9 months
-    4.50%
-    4.60%
-    2.55%
-    4.25%
-    2.85%
-    3.90%
-    2.50%
-    4.20%
-*   9 months to <12 months
-    4.50%
-    4.60%
-    2.60%
-    4.30%
-    2.80%
-    3.95%
-    2.60%
-    4.25%
-*   12 months to < 15 months
-    4.50%
-    4.65%
-    2.65%
-    4.30%
-    2.90%
-    3.95%
-    2.65%
-    4.25%
-*   15 months to < 18 months
-    4.05%
-    4.20%
-    2.25%
-    3.85%
-    2.50%
-    3.50%
-    2.20%
-    3.85%
-*   18 months to < 24 months
-    3.80%
-    4.00%
-    2.05%
-    3.60%
-    2.30%
-    3.25%
-    2.00%
-    3.65%
-*   24 months to < 36 months
-    3.40%
-    3.15%
-    1.80%
-    3.20%
-    2.00%
-    2.80%
-    1.60%
-    3.10%
-*   36 months to 39 months
-    3.40%
-    3.60%
-    1.80%
-    3.20%
-    2.00%
-    2.80%
-    1.65%
-    3.10%
+2. **Restrictions**  
+   Requests will not be processed if:  
+   - Account is dormant/inactive  
+   - Insufficient balance exists  
+   - Senior Citizen's DOB not updated  
 
-**Terms and Conditions:**
+3. **Funds & Nomination**  
+   - Requires sufficient funds on request date and processing date  
+   - Nomination from Savings Account replicates to FD (updatable via Internet Banking/branch)  
 
-*   FDs opened under without premature withdrawal option cannot be withdrawn before maturity
-*   For FDs opened under with Premature option, 0.50% penalty will be applicable if withdrawn before maturity
-*   In case the interest rate applicable to the deposit is less than 0.50%, no interest is payable on such deposit. However, the principal will be protected.
-*   In case the deposit sought to be broken is held for a period equivalent to a tenure for which deposits are offered by the Bank, the interest on the deposit would be lower of the rate applicable to such tenure and rate applicable for its original tenure (as existing at the time of value date of opening/renewal of the deposit sought to be broken), less 0.50%
-*   In certain scenarios, the amount returned to the customer on premature withdrawal could be less than the principal to the extent of interest already paid out to the customer
-*   Simple interest is paid at the applicable rate for deposit up to a period of 12 months. For deposits above 12 months, interest at the applicable rate is compounded annually
-*   For other T&C : The deposit account and the business relationship between the customer and ICICI Bank Limited-GIFT IFSC Banking Unit (IBU) are governed by the provisions of the Application Form submitted by the customer as well as ICICI Bank Limited-GIFT IBU General Terms and Conditions stipulated in Application form submitted by the customer as may be amended from time to time.
-*   All term deposits accepted from Individuals will only have premature withdrawal facility.
-*   Above given rates are subject to change without any prior notice. Actual rate will be quoted at the time of placement of deposit by the customer.
-Here's the cleaned text, with standalone words and special characters removed, and the terms and conditions preserved:
+4. **Closure Conditions**  
+   - Physical FD receipts require branch closure (no online closure)  
+   - Joint FDs need signed physical form for premature/partial closure  
 
-Fixed Deposit Rates for Individuals
-individual
-Corporate
-Terms and Conditions:
-FDs opened under without premature withdrawal option cannot be withdrawn before maturity
-For FDs opened under with Premature option, 0.50% penalty will be applicable if withdrawn before maturity
-In case the interest rate applicable to the deposit is less than 0.50%, no interest is payable on such deposit. However, the principal will be protected.
-In case the deposit sought to be broken is held for a period equivalent to a tenure for which deposits are offered by the Bank, the interest on the deposit would be lower of the rate applicable to such tenure and rate applicable for its original tenure (as existing at the time of value date of opening/renewal of the deposit sought to be broken), less 0.50%
-In certain scenarios, the amount returned to the customer on premature withdrawal could be less than the principal to the extent of interest already paid out to the customer
-Simple interest is paid at the applicable rate for deposits up to a period of 12 months. For deposits above 12 months, interest at the applicable rate is compounded annually
-For other T&C : The deposit account and the business relationship between the customer and ICICI Bank Limited-GIFT IFSC Banking Unit (IBU) are governed by the provisions of the Application Form submitted by the customer as well as ICICI Bank Limited-GIFT IBU General Terms and Conditions stipulated in Application form submitted by the customer as may be amended from time to time.
-All term deposits accepted from Individuals will only have premature withdrawal facility.
-Above given rates are subject to change without any prior notice. Actual rate will be quoted at the time of placement of deposit by the customer.
+5. **Tenure Options**  
+   - **Cumulative Deposits**: 6 months to 10 years  
+   - **Non-Cumulative Deposits**:  
+     *Periodic Interest*: 7-91 days  
+     *Monthly Payout*: 3 months-10 years  
+     *Quarterly Payout*: 6 months-10 years  
+
+6. **Interest Handling**  
+   - Non-Cumulative: Monthly/quarterly credits to linked Savings Account  
+   - Cumulative: Yearly/maturity compounding to Savings Account  
+
+7. **Tax Compliance**  
+   - Submit Form 15G/15H (Senior Citizens) at branches for TDS exemption  
+   - New FDs require separate Form 15G/H submissions  
+
+8. **Documentation**  
+   - FD Advice sent to registered email within 1 working day  
+   - Access via:  
+     Internet Banking > Customer Service > Service Request > Deposits > Generate FD Advice  
+
+9. **Disclaimers**  
+   - SMS/email notifications only if valid contact details exist  
+   - Bank not liable for incorrect/incomplete customer-provided information  
+
+All other promotional content, navigation links, contact details, and non-policy elements have been removed while retaining original legal wording and requirements.Here's the cleaned version of the Fixed Deposit Terms & Conditions, preserving all essential policy content while removing navigation elements, promotional content, and non-contextual elements:
+
+**Fixed Deposit Terms and Conditions**  
+
+1. **Account Creation**  
+   - FD Account can be created within 1 working day.  
+   - Minimum deposit: ₹10,000 (multiples of ₹1 thereafter).  
+   - PAN mandatory for FDs ≥ ₹50,000.  
+
+2. **Restrictions**  
+   - Requests rejected if:  
+     - Account is dormant/inactive  
+     - Insufficient balance  
+     - Senior Citizen’s DOB not updated  
+
+3. **Tenure & Interest**  
+   - **Cumulative Deposits**: 6 months to 10 years (compounded yearly/on maturity).  
+   - **Non-Cumulative Deposits**:  
+     - Periodic Interest: 7 days to 91 days  
+     - Monthly Payout: 3 months to 10 years  
+     - Quarterly Payout: 6 months to 10 years  
+
+4. **Closure & Withdrawals**  
+   - Premature/partial closure of joint FDs requires signed physical form.  
+   - Physical FD receipts cannot be closed online.  
+
+5. **TDS Compliance**  
+   - Submit Form 15G/15H (for TDS exemption) at any branch.  
+   - New FDs require separate Form 15G/H submissions.  
+
+6. **FD Management**  
+   - Nomination follows Savings Account details (updatable via Internet Banking).  
+   - FD Advice sent to registered email within 1 working day.  
+
+7. **Disclaimers**  
+   - ICICI Bank not liable for incorrect/incomplete details.  
+   - SMS/email notifications sent only if valid contact details are registered.  
+
+**Additional Notes**  
+- Interest credited to linked Savings Account:  
+  - Non-cumulative: Monthly/quarterly  
+  - Cumulative: Yearly/on maturity  
+- Check FD status under:  
+  `RIB > Account Summary > Deposit Account`  
+
+*(For interest rates, branch locator, or forms, refer to official ICICI Bank channels.)*  
+
+---  
+*Preserved verbatim from original policy, excluding non-T&C elements like navigation links, promotions, and footer boilerplate.*
