@@ -18,8 +18,9 @@ from groq import Groq
 from pathlib import Path
 import markdown
 
-# APScheduler for periodic background jobs
+# APScheduler imports
 from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR  # NEW IMPORT
 
 # Load environment variables
 load_dotenv()
@@ -91,10 +92,25 @@ def run_updater_script():
     except Exception as e:
         logger.error(f"updater.py error: {e}")
 
+# NEW SCHEDULER LISTENER FUNCTION
+def scheduler_listener(event):
+    """Logs scheduler job execution events"""
+    if event.exception:
+        logger.error(f"Job {event.job_id} FAILED with error: {event.exception}")
+    else:
+        logger.info(f"Job {event.job_id} EXECUTED successfully at {event.scheduled_run_time}")
+
 scheduler = BackgroundScheduler()
 
 @app.on_event("startup")
 def start_scheduler():
+    # Add the job listener
+    scheduler.add_listener(
+        scheduler_listener,
+        EVENT_JOB_EXECUTED | EVENT_JOB_ERROR
+    )
+    
+    # Add jobs
     scheduler.add_job(
         run_runner_script,
         'interval',
@@ -111,8 +127,13 @@ def start_scheduler():
         next_run_time=datetime.now(),
         max_instances=2
     )
+    
     scheduler.start()
-    logger.info("APScheduler started")
+    
+    # Log scheduled jobs for verification
+    logger.info("Scheduler started with jobs:")
+    for job in scheduler.get_jobs():
+        logger.info(f"• Job ID: {job.id} | Next run: {job.next_run_time}")
 
 @app.on_event("shutdown")
 def shutdown_scheduler():
@@ -231,7 +252,7 @@ class ResponseGenerator:
         if not bank:
             return "Please specify the bank for terms and conditions."
         terms_content = TermsLoader.load_terms(bank)
-        return f"{bank} Terms and Conditions**\n\n{terms_content}"
+        return f"**{bank} Terms and Conditions**\n\n{terms_content}"
 
     @staticmethod
     def generate(query: str, data: dict, session_id: str) -> str:
@@ -284,7 +305,7 @@ def process_query(query: str, session_id: str) -> str:
     
     return ResponseGenerator.generate(query, data, session_id)
 
-@app.post("/query")
+@app.post("/")
 async def handle_query(request: QueryRequest):
     try:
         session_id = request.session_id or MemoryManager.create_session()
@@ -298,12 +319,6 @@ async def handle_query(request: QueryRequest):
         logger.error(f"API error: {e}")
         return {"error": str(e)}, 500
 
-@app.get("/")
-async def serve_ui():
-    return FileResponse("static/index.html")
 
-# Mount static files at /static instead of /
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-if __name__ == "_main_":
+if __name__ == "__main__":
     uvicorn.run("server:app", host="0.0.0.0", port=PORT, log_level="info")
