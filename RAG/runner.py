@@ -152,8 +152,6 @@ def update_md():
 
 
 if __name__ == "__main__":
-    while True:
-
         get_terms_raw()
 
         for bank in banks :
