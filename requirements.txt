@@ -6,4 +6,3 @@ supabase
 fastapi
 requests
 typing
-json
