@@ -3,3 +3,4 @@ pydantic
 dotenv
 psycopg2
 supabase
+fastapi
