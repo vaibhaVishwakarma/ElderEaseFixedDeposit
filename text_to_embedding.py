@@ -1,5 +1,5 @@
 import os 
-from langchain_community.document_loaders import TextLoader
+from langchain.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from dotenv import load_dotenv
 import psycopg2
