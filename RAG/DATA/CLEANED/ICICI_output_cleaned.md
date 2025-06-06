@@ -1,96 +1,94 @@
-Here's the cleaned version of the Fixed Deposit Terms & Conditions, preserving all policy content while removing promotional/navigation elements:
+Here's the cleaned terms and conditions policy with minimal loss of core content:
 
-**Fixed Deposit Terms and Conditions**
+**A must-do for NRIs: Convert your resident savings account to NRO account**  
 
-1. **Account Creation**  
-   - FD Account can be created within 1 working day  
-   - Minimum deposit: ₹10,000 (multiples of ₹1 thereafter)  
-   - PAN mandatory for deposits ≥₹50,000  
+**When do you qualify to be an NRI**  
+Prevailing Foreign Exchange Management Act (FEMA) regulations mandate that Non-Resident Indians (NRIs)/Persons of Indian Origin (PIOs)/Overseas Citizens of India (OCIs) must close all resident savings/current accounts or convert them to NRO accounts. You qualify as NRI if:  
+1. Residing overseas (except Nepal/Bhutan) >182 days in a Financial Year (April-March)  
+2. Demonstrate intent to reside abroad indefinitely (employment, business, education, etc.)  
 
-2. **Restrictions**  
-   Requests will not be processed if:  
-   - Account is dormant/inactive  
-   - Insufficient balance exists  
-   - Senior Citizen's DOB not updated  
+**Conversion Procedure**  
+1. Visit branch with required documents or use digital banking channels  
+2. Submit:  
+   - Application form  
+   - Identity proof (Passport/Aadhaar/Driving License/Voter ID)  
+   - Address proof  
+   - Passport photos  
+   - FATCA/CRS declarations  
+   - PAN card or Form 60  
 
-3. **Funds & Nomination**  
-   - Requires sufficient funds on request date and processing date  
-   - Nomination from Savings Account replicates to FD (updatable via Internet Banking/branch)  
+**Penalties for Non-Compliance**  
+- Up to 3x account balance fine  
+- ₹2 lakh fine if amount unquantifiable  
+- ₹5,000 daily penalty until compliance  
+*(Section 13, FEMA Act 1999)*  
 
-4. **Closure Conditions**  
-   - Physical FD receipts require branch closure (no online closure)  
-   - Joint FDs need signed physical form for premature/partial closure  
+**FAQs**  
+*Q: Tax implications after conversion?*  
+- NRO account interest subject to 30% TDS + surcharge/cess  
+- DTAA benefits available with valid TRC and Form 10F  
 
-5. **Tenure Options**  
-   - **Cumulative Deposits**: 6 months to 10 years  
-   - **Non-Cumulative Deposits**:  
-     *Periodic Interest*: 7-91 days  
-     *Monthly Payout*: 3 months-10 years  
-     *Quarterly Payout*: 6 months-10 years  
+*Q: Can I convert to NRE account?*  
+- No, only conversion to NRO permitted  
 
-6. **Interest Handling**  
-   - Non-Cumulative: Monthly/quarterly credits to linked Savings Account  
-   - Cumulative: Yearly/maturity compounding to Savings Account  
+*Q: Status of existing FDs/RDs?*  
+- Must be converted to NRO deposits  
 
-7. **Tax Compliance**  
-   - Submit Form 15G/15H (Senior Citizens) at branches for TDS exemption  
-   - New FDs require separate Form 15G/H submissions  
+**Key Disclaimers**  
+1. Content informational only (last updated Jan 15, 2024)  
+2. ICICI Bank not liable for decisions made based on this content  
+3. Third-party terms apply  
+4. PAN mandatory for current account conversion  
 
-8. **Documentation**  
-   - FD Advice sent to registered email within 1 working day  
-   - Access via:  
-     Internet Banking > Customer Service > Service Request > Deposits > Generate FD Advice  
+**Documentation Note**  
+*List is indicative. Requirements may vary by bank.*  
 
-9. **Disclaimers**  
-   - SMS/email notifications only if valid contact details exist  
-   - Bank not liable for incorrect/incomplete customer-provided information  
+This retains all regulatory requirements, procedures, penalties, and disclaimers while removing promotional content, duplicate sections, navigation elements, and non-essential formatting. Legal references and compliance details are preserved verbatim.Here's the cleaned version of the terms and conditions policy, preserving all substantive content while removing navigation elements, promotional offers, and redundant sections:
 
-All other promotional content, navigation links, contact details, and non-policy elements have been removed while retaining original legal wording and requirements.Here's the cleaned version of the Fixed Deposit Terms & Conditions, preserving all essential policy content while removing navigation elements, promotional content, and non-contextual elements:
+---
 
-**Fixed Deposit Terms and Conditions**  
+**A must-do for NRIs: Convert your resident savings account to an NRO account**  
 
-1. **Account Creation**  
-   - FD Account can be created within 1 working day.  
-   - Minimum deposit: ₹10,000 (multiples of ₹1 thereafter).  
-   - PAN mandatory for FDs ≥ ₹50,000.  
+**When do you qualify to be an NRI**  
+Prevailing Foreign Exchange Management Act (FEMA) regulations mandate that Non-Resident Indians (NRIs)/Persons of Indian Origin (PIOs)/Overseas Citizens of India (OCIs) must close all resident savings/current accounts or convert them to NRO accounts. You qualify as an NRI if:  
+1. Residing overseas (except Nepal/Bhutan) for >182 days in a financial year (April-March);  
+2. Demonstrating intent to reside abroad indefinitely (employment, business, education, etc.).  
 
-2. **Restrictions**  
-   - Requests rejected if:  
-     - Account is dormant/inactive  
-     - Insufficient balance  
-     - Senior Citizen’s DOB not updated  
+**Procedure to convert resident savings account to NRO account**  
+1. Visit a branch or use digital banking channels.  
+2. Submit:  
+   - Application form for conversion  
+   - Identity proof (Passport/Aadhaar/Driving License/Voter ID)  
+   - Address proof (Driving License/Voter ID/Aadhaar/NREGA job card)  
+   - Passport-sized photos  
+   - FATCA/CRS declarations (for US/UK/Canada/100+ CRS countries)  
+   - PAN card or Form 60 (mandatory for current accounts)  
 
-3. **Tenure & Interest**  
-   - **Cumulative Deposits**: 6 months to 10 years (compounded yearly/on maturity).  
-   - **Non-Cumulative Deposits**:  
-     - Periodic Interest: 7 days to 91 days  
-     - Monthly Payout: 3 months to 10 years  
-     - Quarterly Payout: 6 months to 10 years  
+**Penalties for non-compliance**  
+- Fine up to 3x account balance or ₹2 lakh (if unquantifiable).  
+- Additional ₹5,000/day penalty until resolved (Section 13, FEMA Act, 1999).  
 
-4. **Closure & Withdrawals**  
-   - Premature/partial closure of joint FDs requires signed physical form.  
-   - Physical FD receipts cannot be closed online.  
+**Key points**  
+- Existing funds remain in the converted NRO account.  
+- All India-sourced income (rent, dividends, interest) must be credited to NRO.  
+- TDS applies on NRO interest income (30% + surcharge/cess). Lower rates under DTAA with valid TRC/Form 10F.  
+- Resident FDs/RDs must also be converted to NRO deposits.  
 
-5. **TDS Compliance**  
-   - Submit Form 15G/15H (for TDS exemption) at any branch.  
-   - New FDs require separate Form 15G/H submissions.  
+**FAQs**  
+**Q: Can I use my existing chequebook/debit card?**  
+A: Chequebook/internet banking may continue; debit card requires replacement.  
 
-6. **FD Management**  
-   - Nomination follows Savings Account details (updatable via Internet Banking).  
-   - FD Advice sent to registered email within 1 working day.  
+**Q: Tax implications?**  
+A: Interest taxed at 30% + surcharge/cess. DTAA benefits require TRC/Form 10F.  
 
-7. **Disclaimers**  
-   - ICICI Bank not liable for incorrect/incomplete details.  
-   - SMS/email notifications sent only if valid contact details are registered.  
+**Q: Can I convert to NRE account?**  
+A: No—only NRO conversion is permitted.  
 
-**Additional Notes**  
-- Interest credited to linked Savings Account:  
-  - Non-cumulative: Monthly/quarterly  
-  - Cumulative: Yearly/on maturity  
-- Check FD status under:  
-  `RIB > Account Summary > Deposit Account`  
+**Disclaimer**  
+Content is informational only, not advisory. Subject to change. ICICI Bank/affiliates not liable for decisions based on this material. Consult a financial advisor. Terms apply to ICICI Bank/third-party services.  
 
-*(For interest rates, branch locator, or forms, refer to official ICICI Bank channels.)*  
+**Last updated:** January 15, 2024  
 
----  
-*Preserved verbatim from original policy, excluding non-T&C elements like navigation links, promotions, and footer boilerplate.*
+--- 
+
+This retains all legal requirements, procedures, penalties, FAQs, and disclaimers while removing duplicates, navigation links, promotions, and non-essential footer content. Formatting is simplified for clarity.

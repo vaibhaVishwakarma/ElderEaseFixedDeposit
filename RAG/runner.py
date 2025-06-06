@@ -1,16 +1,20 @@
 from crewai_tools import ScrapeWebsiteTool
 import requests 
-import json
-import time 
 import os 
 from dotenv import load_dotenv
 import markdown as md
-from supabase import create_client, Client
 import os
+import re
 from dotenv import load_dotenv
+import nltk
+from nltk.corpus import stopwords
+from langchain_community.document_loaders import TextLoader
+from langchain.text_splitter import CharacterTextSplitter
 
-env_path = os.path.join(os.path.dirname(__file__), '..', '.env')
-load_dotenv(dotenv_path=env_path)
+nltk.download('stopwords')
+
+
+load_dotenv()
 # Initialize Supabase Client
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
@@ -19,22 +23,17 @@ OPENROUTER_API_URL = os.getenv("OPENROUTER_API_URL")
 CUSTOM_SEARCH_API_KEY = os.getenv("CUSTOM_SEARCH_API_KEY")
 CUSTOM_SEARCH_ENGINE_ID = os.getenv('CUSTOM_SEARCH_ENGINE_ID')
 
-LIMIT_PAGES = 1
-MODEL_NAME = "microsoft/mai-ds-r1:free"
-BUCKET_NAME = "pdtracker-bucket"
-
-supabase_client = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-# Define storage details
-
-load_dotenv(dotenv_path = "../.env")
+LIMIT_PAGES = 3
+MODEL_NAME = "google/gemini-2.0-flash-exp:free"
 
 banks = [
     "HDFC",
-    "ICICI",
     "SBI",
-    "KOTAK"
+    "KOTAK",
+    "ICICI",
 ]
+
+stop_words = set(stopwords.words('english'))
 
 def get_terms_raw():
 
@@ -57,12 +56,15 @@ def get_terms_raw():
         links = []
         for item in data.get("items", []):
             links.append(item["link"])
-        return links[:LIMIT_PAGES]
+        return links[2:2+LIMIT_PAGES]
 
     for bank in banks:
         with open(f"DATA/RAW/{bank}_output.md", "w",encoding="utf-8") as file: 
             for link in get_terms_links(bank):
-                file.write(md.markdown(get_md(link)))
+                text_data =md.markdown(get_md(link)) 
+                text_data = re.sub(r'[^a-zA-Z0-9\\s+\-*%&.,]' , " " , re.sub("\\n+|\\s+" , " " , text_data))
+                text_data = " ".join([word for word in text_data.split(" ") if word.lower() not in stop_words])
+                file.write(text_data)
 
 
 
@@ -71,38 +73,66 @@ def read_markdown_file(filename):
         return file.read()
 
 def clean_text_with_llm(text):
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json"
-    }
-    
-    payload = {
-        "model": MODEL_NAME,  # Use a suitable model from OpenRouter
-        "messages": [
-            {"role": "system", "content": """Objective:You are textual garbage removal agent, you must protect the terms and conditions 
-             passed to you, make sure no modification is made and mustremove any stand alone, un-contextual words. 
-             you may also encounter some special characters such as emoji, letters other than alphabets , digits , brackets or spaces.
-             Note: in the end you present the sentances which make sence and are likely to be part of terms and condition policy, in the exact words as it was given.
-             Aim: reduce jargons or garbage and return the same with minimal loss of textual knowledge."""},
+    sentences = text.split(" ")
+    n_sentences = 3000
+    lower = min(n_sentences , len(sentences))
+    text_chunks = [ " ".join(sentences)[idx-lower:idx]  for idx in range(lower,len(sentences)+1,n_sentences) ]
+    total_output = ""
 
-            {"role": "user", "content": f"the following is the terms and condition policy with lots of jargons, return the cleaned version of it:\n{text}"}
-        ],
-        "temperature": 0.6
-    }
-    
-    response = requests.post(OPENROUTER_API_URL, headers=headers, json=payload)
-    
-    if response.status_code == 200:
-        result = response.json()
-        print(result)
-        try:
-            return result["choices"][0]["message"]["content"]
-        except Exception as e:
+
+    for data in text_chunks :
+        headers = {
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Content-Type": "application/json"
+        }
+        
+        payload = {
+            "model": MODEL_NAME,  # Use a suitable model from OpenRouter
+            "messages": [
+                {
+                    "role":"user",
+                    "content": [ 
+                    {    
+                    "type":"text",
+                    "text": f"""
+                    You are a legal assistant. Given the following messy, unstructured, or mixed textual data, extract **only** the sentences or clauses that are part of the "terms and conditions". 
+
+                        ⚠️ Do not summarize, rewrite, or paraphrase. 
+                        ⚠️ Do not alter any legal language.
+                        ✅ Preserve the wording exactly as it appears.
+                        ✅ Include all relevant clauses, even if they appear disorganized or embedded in unrelated text.
+
+                        Input text:
+                        ---
+                        {data}
+                        ---
+
+                        Output:
+                        - List only the exact sentences or clauses that are part of the terms and conditions.
+                        - If some sentences are incomplete or split, reconstruct them **without changing** any part of the original language.
+                            """
+                    }    ]
+                }
+
+            ],
+            "temperature": 0.67
+        }
+        
+        response = requests.post(OPENROUTER_API_URL, headers=headers, json=payload)
+        
+        if response.status_code == 200:
+            result = response.json()
+            print(result)
+            try:
+                total_output += result["choices"][0]["message"]["content"]
+            except Exception as e:
+                print("Error:", response.status_code, response.text)
+                return None
+        else:
             print("Error:", response.status_code, response.text)
             return None
-    else:
-        print("Error:", response.status_code, response.text)
-        return None
+    return total_output
+        
 
 # Function to write cleaned text to a new markdown file
 def write_cleaned_markdown(filename="output_cleaned.md", text=""):
@@ -125,7 +155,7 @@ def cleaner(bank_name):
         print(e)
 
 
-    cleaned_text = ""
+    cleaned_text = "" 
     for part_text in parts:
         if part_text is None : continue
         cleaned_text += clean_text_with_llm(part_text) or ""
@@ -137,28 +167,14 @@ def cleaner(bank_name):
         print("Cleaning complete. Check "+ filename)
 
 
+def main():
+    get_terms_raw()
 
-def update_md():
-    for bank in banks:
-        FILE_PATH = f"{bank}_output_cleaned.md"  # Path in Supabase Storage
-        NEW_FILE = rf"DATA\CLEANED\{bank}_output_cleaned.md"  # Local file to upload
-        try:
-            supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-            with open(NEW_FILE, "rb") as f:
-                upload_result = supabase.storage.from_(BUCKET_NAME).update(FILE_PATH, f,file_options={"cacheControl": "3600", "upsert": True})
-        except Exception as e:
-            print(f"Failed Uploading {FILE_PATH}")
+    for bank in banks :
+        cleaner(bank)
 
 
-
-if __name__ == "__main__":
-        get_terms_raw()
-
-        for bank in banks :
-            cleaner(bank)
-
-        update_md()    
-
+main()
         
 
 
