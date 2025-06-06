@@ -14,7 +14,6 @@ PORT = int(os.getenv("PORT",7711))
 query_resolver = QueryResponder()
 
 app = FastAPI()
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
