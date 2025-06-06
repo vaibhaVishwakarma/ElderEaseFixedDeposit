@@ -23,7 +23,6 @@ app.add_middleware(
 
 class QueryRequest(BaseModel):
     text: str
-    session_id: Optional[str] = None
 
 @app.get("/")
 async def greet():
@@ -35,13 +34,11 @@ async def resolve_query(request: QueryRequest):
         answer = query_resolver.resolve_query(request.text)
         return {
                 "response": answer,
-                "session_id": request.session_id
             }
     
     except Exception as e:
         return  {
                 "response": "Error Resolvign Query! Internal Server Error",
-                "session_id": request.session_id
             }
 
 
