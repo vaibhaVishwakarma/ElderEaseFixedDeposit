@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/ElderEaseFixedDeposit/static/css/main.309476eb.css",
-    "main.js": "/ElderEaseFixedDeposit/static/js/main.f1fb1977.js",
+    "main.css": "/ElderEaseFixedDeposit/static/css/main.bde17203.css",
+    "main.js": "/ElderEaseFixedDeposit/static/js/main.a32a7cfd.js",
     "static/js/952.32f5cbef.chunk.js": "/ElderEaseFixedDeposit/static/js/952.32f5cbef.chunk.js",
     "static/js/453.bb828c5d.chunk.js": "/ElderEaseFixedDeposit/static/js/453.bb828c5d.chunk.js",
     "index.html": "/ElderEaseFixedDeposit/index.html",
-    "main.309476eb.css.map": "/ElderEaseFixedDeposit/static/css/main.309476eb.css.map",
-    "main.f1fb1977.js.map": "/ElderEaseFixedDeposit/static/js/main.f1fb1977.js.map",
+    "main.bde17203.css.map": "/ElderEaseFixedDeposit/static/css/main.bde17203.css.map",
+    "main.a32a7cfd.js.map": "/ElderEaseFixedDeposit/static/js/main.a32a7cfd.js.map",
     "952.32f5cbef.chunk.js.map": "/ElderEaseFixedDeposit/static/js/952.32f5cbef.chunk.js.map",
     "453.bb828c5d.chunk.js.map": "/ElderEaseFixedDeposit/static/js/453.bb828c5d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.309476eb.css",
-    "static/js/main.f1fb1977.js"
+    "static/css/main.bde17203.css",
+    "static/js/main.a32a7cfd.js"
   ]
 }
