@@ -54,7 +54,7 @@ async def get_query(request: LLMQuery):
 @app.post("/simple-request")
 async def simple_request(request: QueryRequest):
     import requests
-    r = requests.post('https://httpbin.org / post', data ={'key':'value'})
+    r = requests.post('https://httpbin.org/post', data ={'key':'value'})
     print(r.json())
     return {"ok":"done"}
 
