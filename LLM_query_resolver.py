@@ -34,7 +34,7 @@ class QueryResponder:
             )
         return connection , connection.cursor()
 
-    def __init__(self , * , model_name = "qwen/qwen2.5-vl-3b-instruct:free"):
+    def __init__(self , * , model_name = "qwen/qwen3-235b-a22b:free"):
         self.SUPABASE_URL , self.SUPABASE_KEY = os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY")
         self.supabase = create_client(self.SUPABASE_URL,self.SUPABASE_KEY)
         self.OPENROUTER_API_URL , self.OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_URL") , os.getenv("OPENROUTER_API_KEY")
@@ -59,7 +59,7 @@ class QueryResponder:
     
     def resolve_query(self , query):
         context = self._context_fetcher(query)
-        print(context)
+        print(context[:500])
 
         return self.get_llm_response(query , context)
 
@@ -155,7 +155,9 @@ class QueryResponder:
         
 
 
-                
+if __name__=="__main__" :
+    obj = QueryResponder()
+    print(obj.resolve_query(query = "Help Me with ICICI bank fd rates"))               
     
         
 
