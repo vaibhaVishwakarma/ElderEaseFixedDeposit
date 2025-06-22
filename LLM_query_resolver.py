@@ -59,6 +59,7 @@ class QueryResponder:
     
     def resolve_query(self , query):
         context = self._context_fetcher(query)
+        print(context)
 
         return self.get_llm_response(query , context)
 
