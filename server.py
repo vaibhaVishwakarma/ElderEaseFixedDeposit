@@ -23,6 +23,10 @@ app.add_middleware(
 
 class QueryRequest(BaseModel):
     text: str
+    
+class LLMQuery(BaseModel):
+    query: str
+    context: str
 
 @app.get("/")
 async def greet():
@@ -38,10 +42,21 @@ async def resolve_query(request: QueryRequest):
     
     except Exception as e:
         return  {
-                "response": "Error Resolvign Query! Internal Server Error",
+                "response": "Error Resolving Query! Internal Server Error",
             }
-
-
+@app.post("/query-llm")
+async def get_query(request: LLMQuery):
+    try:
+        ans = query_resolver.get_llm_response(request.query , request.context)
+        return {"response": ans}
+    except Exception as e:
+        return {"response": "Error fetching llm response"}
+@app.post("/simple-request")
+async def simple_request(request: QueryRequest):
+    import requests
+    r = requests.post('https://httpbin.org/post', data ={'key':'value'})
+    print(r.json())
+    return {"ok":"done"}
 
 if __name__ == "__main__":
     uvicorn.run("server:app", host="0.0.0.0", port=PORT, reload=True)

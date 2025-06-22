@@ -110,6 +110,7 @@ class QueryResponder:
         
         if response.ok :
             return response.json()["choices"][0]["message"]["content"]
+        print(response)
         return "Error Connecting."
     
     def _context_fetcher(self,query):
