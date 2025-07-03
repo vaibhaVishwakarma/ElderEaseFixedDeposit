@@ -1,0 +1,13 @@
+.env
+*/.*
+*/_*
+*\\.*
+*\\__*
+__pycache__
+/static
+static
+
+updater/__pycache__
+
+
+website

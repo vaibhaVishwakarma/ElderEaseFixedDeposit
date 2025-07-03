@@ -1,131 +1,94 @@
-Here's the cleaned text, with standalone words and extraneous characters removed, and the terms and conditions preserved:
+Here's the cleaned terms and conditions policy with minimal loss of core content:
 
-**Fixed Deposit Rates for Individuals**
+**A must-do for NRIs: Convert your resident savings account to NRO account**  
 
-*   **Tenor**
-*   **USD**
-*   **GBP**
-*   **EUR**
-*   **AED**
-*   **CAD**
-*   **HKD**
-*   **SGD**
-*   **AUD**
+**When do you qualify to be an NRI**  
+Prevailing Foreign Exchange Management Act (FEMA) regulations mandate that Non-Resident Indians (NRIs)/Persons of Indian Origin (PIOs)/Overseas Citizens of India (OCIs) must close all resident savings/current accounts or convert them to NRO accounts. You qualify as NRI if:  
+1. Residing overseas (except Nepal/Bhutan) >182 days in a Financial Year (April-March)  
+2. Demonstrate intent to reside abroad indefinitely (employment, business, education, etc.)  
 
-*   7 days < 30 days
-    4.15%
-    4.20%
-    2.05%
-    3.85%
-    2.35%
-    3.20%
-    2.00%
-    3.70%
-*   30 days < 3 months
-    4.45%
-    4.45%
-    2.45%
-    4.15%
-    2.65%
-    3.70%
-    2.35%
-    4.10%
-*   3 months to < 6 months
-    4.50%
-    4.50%
-    2.50%
-    4.20%
-    2.75%
-    3.80%
-    2.45%
-    4.15%
-*   6 months to < 9 months
-    4.50%
-    4.60%
-    2.55%
-    4.25%
-    2.85%
-    3.90%
-    2.50%
-    4.20%
-*   9 months to <12 months
-    4.50%
-    4.60%
-    2.60%
-    4.30%
-    2.80%
-    3.95%
-    2.60%
-    4.25%
-*   12 months to < 15 months
-    4.50%
-    4.65%
-    2.65%
-    4.30%
-    2.90%
-    3.95%
-    2.65%
-    4.25%
-*   15 months to < 18 months
-    4.05%
-    4.20%
-    2.25%
-    3.85%
-    2.50%
-    3.50%
-    2.20%
-    3.85%
-*   18 months to < 24 months
-    3.80%
-    4.00%
-    2.05%
-    3.60%
-    2.30%
-    3.25%
-    2.00%
-    3.65%
-*   24 months to < 36 months
-    3.40%
-    3.15%
-    1.80%
-    3.20%
-    2.00%
-    2.80%
-    1.60%
-    3.10%
-*   36 months to 39 months
-    3.40%
-    3.60%
-    1.80%
-    3.20%
-    2.00%
-    2.80%
-    1.65%
-    3.10%
+**Conversion Procedure**  
+1. Visit branch with required documents or use digital banking channels  
+2. Submit:  
+   - Application form  
+   - Identity proof (Passport/Aadhaar/Driving License/Voter ID)  
+   - Address proof  
+   - Passport photos  
+   - FATCA/CRS declarations  
+   - PAN card or Form 60  
 
-**Terms and Conditions:**
+**Penalties for Non-Compliance**  
+- Up to 3x account balance fine  
+- ₹2 lakh fine if amount unquantifiable  
+- ₹5,000 daily penalty until compliance  
+*(Section 13, FEMA Act 1999)*  
 
-*   FDs opened under without premature withdrawal option cannot be withdrawn before maturity
-*   For FDs opened under with Premature option, 0.50% penalty will be applicable if withdrawn before maturity
-*   In case the interest rate applicable to the deposit is less than 0.50%, no interest is payable on such deposit. However, the principal will be protected.
-*   In case the deposit sought to be broken is held for a period equivalent to a tenure for which deposits are offered by the Bank, the interest on the deposit would be lower of the rate applicable to such tenure and rate applicable for its original tenure (as existing at the time of value date of opening/renewal of the deposit sought to be broken), less 0.50%
-*   In certain scenarios, the amount returned to the customer on premature withdrawal could be less than the principal to the extent of interest already paid out to the customer
-*   Simple interest is paid at the applicable rate for deposit up to a period of 12 months. For deposits above 12 months, interest at the applicable rate is compounded annually
-*   For other T&C : The deposit account and the business relationship between the customer and ICICI Bank Limited-GIFT IFSC Banking Unit (IBU) are governed by the provisions of the Application Form submitted by the customer as well as ICICI Bank Limited-GIFT IBU General Terms and Conditions stipulated in Application form submitted by the customer as may be amended from time to time.
-*   All term deposits accepted from Individuals will only have premature withdrawal facility.
-*   Above given rates are subject to change without any prior notice. Actual rate will be quoted at the time of placement of deposit by the customer.
-Here's the cleaned text, with standalone words and special characters removed, and the terms and conditions preserved:
+**FAQs**  
+*Q: Tax implications after conversion?*  
+- NRO account interest subject to 30% TDS + surcharge/cess  
+- DTAA benefits available with valid TRC and Form 10F  
 
-Fixed Deposit Rates for Individuals
-individual
-Corporate
-Terms and Conditions:
-FDs opened under without premature withdrawal option cannot be withdrawn before maturity
-For FDs opened under with Premature option, 0.50% penalty will be applicable if withdrawn before maturity
-In case the interest rate applicable to the deposit is less than 0.50%, no interest is payable on such deposit. However, the principal will be protected.
-In case the deposit sought to be broken is held for a period equivalent to a tenure for which deposits are offered by the Bank, the interest on the deposit would be lower of the rate applicable to such tenure and rate applicable for its original tenure (as existing at the time of value date of opening/renewal of the deposit sought to be broken), less 0.50%
-In certain scenarios, the amount returned to the customer on premature withdrawal could be less than the principal to the extent of interest already paid out to the customer
-Simple interest is paid at the applicable rate for deposits up to a period of 12 months. For deposits above 12 months, interest at the applicable rate is compounded annually
-For other T&C : The deposit account and the business relationship between the customer and ICICI Bank Limited-GIFT IFSC Banking Unit (IBU) are governed by the provisions of the Application Form submitted by the customer as well as ICICI Bank Limited-GIFT IBU General Terms and Conditions stipulated in Application form submitted by the customer as may be amended from time to time.
-All term deposits accepted from Individuals will only have premature withdrawal facility.
-Above given rates are subject to change without any prior notice. Actual rate will be quoted at the time of placement of deposit by the customer.
+*Q: Can I convert to NRE account?*  
+- No, only conversion to NRO permitted  
+
+*Q: Status of existing FDs/RDs?*  
+- Must be converted to NRO deposits  
+
+**Key Disclaimers**  
+1. Content informational only (last updated Jan 15, 2024)  
+2. ICICI Bank not liable for decisions made based on this content  
+3. Third-party terms apply  
+4. PAN mandatory for current account conversion  
+
+**Documentation Note**  
+*List is indicative. Requirements may vary by bank.*  
+
+This retains all regulatory requirements, procedures, penalties, and disclaimers while removing promotional content, duplicate sections, navigation elements, and non-essential formatting. Legal references and compliance details are preserved verbatim.Here's the cleaned version of the terms and conditions policy, preserving all substantive content while removing navigation elements, promotional offers, and redundant sections:
+
+---
+
+**A must-do for NRIs: Convert your resident savings account to an NRO account**  
+
+**When do you qualify to be an NRI**  
+Prevailing Foreign Exchange Management Act (FEMA) regulations mandate that Non-Resident Indians (NRIs)/Persons of Indian Origin (PIOs)/Overseas Citizens of India (OCIs) must close all resident savings/current accounts or convert them to NRO accounts. You qualify as an NRI if:  
+1. Residing overseas (except Nepal/Bhutan) for >182 days in a financial year (April-March);  
+2. Demonstrating intent to reside abroad indefinitely (employment, business, education, etc.).  
+
+**Procedure to convert resident savings account to NRO account**  
+1. Visit a branch or use digital banking channels.  
+2. Submit:  
+   - Application form for conversion  
+   - Identity proof (Passport/Aadhaar/Driving License/Voter ID)  
+   - Address proof (Driving License/Voter ID/Aadhaar/NREGA job card)  
+   - Passport-sized photos  
+   - FATCA/CRS declarations (for US/UK/Canada/100+ CRS countries)  
+   - PAN card or Form 60 (mandatory for current accounts)  
+
+**Penalties for non-compliance**  
+- Fine up to 3x account balance or ₹2 lakh (if unquantifiable).  
+- Additional ₹5,000/day penalty until resolved (Section 13, FEMA Act, 1999).  
+
+**Key points**  
+- Existing funds remain in the converted NRO account.  
+- All India-sourced income (rent, dividends, interest) must be credited to NRO.  
+- TDS applies on NRO interest income (30% + surcharge/cess). Lower rates under DTAA with valid TRC/Form 10F.  
+- Resident FDs/RDs must also be converted to NRO deposits.  
+
+**FAQs**  
+**Q: Can I use my existing chequebook/debit card?**  
+A: Chequebook/internet banking may continue; debit card requires replacement.  
+
+**Q: Tax implications?**  
+A: Interest taxed at 30% + surcharge/cess. DTAA benefits require TRC/Form 10F.  
+
+**Q: Can I convert to NRE account?**  
+A: No—only NRO conversion is permitted.  
+
+**Disclaimer**  
+Content is informational only, not advisory. Subject to change. ICICI Bank/affiliates not liable for decisions based on this material. Consult a financial advisor. Terms apply to ICICI Bank/third-party services.  
+
+**Last updated:** January 15, 2024  
+
+--- 
+
+This retains all legal requirements, procedures, penalties, FAQs, and disclaimers while removing duplicates, navigation links, promotions, and non-essential footer content. Formatting is simplified for clarity.

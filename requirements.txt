@@ -1,0 +1,8 @@
+uvicorn
+pydantic
+dotenv
+psycopg2
+supabase
+fastapi
+requests
+typing

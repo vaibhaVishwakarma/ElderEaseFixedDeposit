@@ -1,38 +1,39 @@
 from crewai_tools import ScrapeWebsiteTool
 import requests 
-import json
-import time 
 import os 
 from dotenv import load_dotenv
 import markdown as md
-from supabase import create_client, Client
 import os
+import re
 from dotenv import load_dotenv
+import nltk
+from nltk.corpus import stopwords
+from langchain_community.document_loaders import TextLoader
+from langchain.text_splitter import CharacterTextSplitter
+
+nltk.download('stopwords')
+
 
 load_dotenv()
 # Initialize Supabase Client
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_API_URL = os.getenv("OPENROUTER_API_URL")
+CUSTOM_SEARCH_API_KEY = os.getenv("CUSTOM_SEARCH_API_KEY")
+CUSTOM_SEARCH_ENGINE_ID = os.getenv('CUSTOM_SEARCH_ENGINE_ID')
 
-supabase_client = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-# Define storage details
-BUCKET_NAME = "pdtracker-bucket"
-
-
-
-
-
-load_dotenv()
-
-MINUTES = 60
+LIMIT_PAGES = 3
+MODEL_NAME = "google/gemini-2.0-flash-exp:free"
 
 banks = [
     "HDFC",
-    "ICICI",
     "SBI",
-    "KOTAK"
+    "KOTAK",
+    "ICICI",
 ]
+
+stop_words = set(stopwords.words('english'))
 
 def get_terms_raw():
 
@@ -45,8 +46,6 @@ def get_terms_raw():
             return ""
         return res
 
-    CUSTOM_SEARCH_API_KEY = os.getenv("CUSTOM_SEARCH_API_KEY")
-    CUSTOM_SEARCH_ENGINE_ID = os.getenv('CUSTOM_SEARCH_ENGINE_ID')
     def get_terms_links(bank_name):
         search_query = f"{bank_name} fixed Deposites terms and conditions and penalities"
         url = f"https://www.googleapis.com/customsearch/v1?q={search_query}&key={CUSTOM_SEARCH_API_KEY}&cx={CUSTOM_SEARCH_ENGINE_ID}"
@@ -57,52 +56,83 @@ def get_terms_raw():
         links = []
         for item in data.get("items", []):
             links.append(item["link"])
-        return links
+        return links[2:2+LIMIT_PAGES]
 
     for bank in banks:
         with open(f"DATA/RAW/{bank}_output.md", "w",encoding="utf-8") as file: 
             for link in get_terms_links(bank):
-                file.write(md.markdown(get_md(link)))
+                text_data =md.markdown(get_md(link)) 
+                text_data = re.sub(r'[^a-zA-Z0-9\\s+\-*%&.,]' , " " , re.sub("\\n+|\\s+" , " " , text_data))
+                text_data = " ".join([word for word in text_data.split(" ") if word.lower() not in stop_words])
+                file.write(text_data)
 
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-OPENROUTER_API_URL = os.getenv("OPENROUTER_API_URL")
 
 def read_markdown_file(filename):
     with open(filename, "r", encoding="utf-8") as file:
         return file.read()
 
 def clean_text_with_llm(text):
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Content-Type": "application/json"
-    }
-    
-    payload = {
-        "model": "google/gemini-2.0-flash-lite-preview-02-05:free",  # Use a suitable model from OpenRouter
-        "messages": [
-            {"role": "system", "content": """You are textual garbage removal agent, you must protect the terms and conditions 
-             passed to you, make sure no modification is made and mustremove any stand alone, un-contextual words. 
-             you may also encounter some special characters such as emoji, letters other than alphabets , digits , brackets or spaces """},
+    sentences = text.split(" ")
+    n_sentences = 3000
+    lower = min(n_sentences , len(sentences))
+    text_chunks = [ " ".join(sentences)[idx-lower:idx]  for idx in range(lower,len(sentences)+1,n_sentences) ]
+    total_output = ""
 
-            {"role": "user", "content": f"Clean this text and remove garbage values:\n{text}"}
-        ],
-        "temperature": 0.2
-    }
-    
-    response = requests.post(OPENROUTER_API_URL, headers=headers, json=payload)
-    
-    if response.status_code == 200:
-        result = response.json()
-        print(result)
-        try:
-            return result["choices"][0]["message"]["content"]
-        except Exception as e:
+
+    for data in text_chunks :
+        headers = {
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "Content-Type": "application/json"
+        }
+        
+        payload = {
+            "model": MODEL_NAME,  # Use a suitable model from OpenRouter
+            "messages": [
+                {
+                    "role":"user",
+                    "content": [ 
+                    {    
+                    "type":"text",
+                    "text": f"""
+                    You are a legal assistant. Given the following messy, unstructured, or mixed textual data, extract **only** the sentences or clauses that are part of the "terms and conditions". 
+
+                        ⚠️ Do not summarize, rewrite, or paraphrase. 
+                        ⚠️ Do not alter any legal language.
+                        ✅ Preserve the wording exactly as it appears.
+                        ✅ Include all relevant clauses, even if they appear disorganized or embedded in unrelated text.
+
+                        Input text:
+                        ---
+                        {data}
+                        ---
+
+                        Output:
+                        - List only the exact sentences or clauses that are part of the terms and conditions.
+                        - If some sentences are incomplete or split, reconstruct them **without changing** any part of the original language.
+                            """
+                    }    ]
+                }
+
+            ],
+            "temperature": 0.67
+        }
+        
+        response = requests.post(OPENROUTER_API_URL, headers=headers, json=payload)
+        
+        if response.status_code == 200:
+            result = response.json()
+            print(result)
+            try:
+                total_output += result["choices"][0]["message"]["content"]
+            except Exception as e:
+                print("Error:", response.status_code, response.text)
+                return None
+        else:
             print("Error:", response.status_code, response.text)
             return None
-    else:
-        print("Error:", response.status_code, response.text)
-        return None
+    return total_output
+        
 
 # Function to write cleaned text to a new markdown file
 def write_cleaned_markdown(filename="output_cleaned.md", text=""):
@@ -117,14 +147,18 @@ def cleaner(bank_name):
     # Clean using LLM
     length = len(original_text)
     
-    ps = [i for i in range(0,length,(int(10e5)-1000))]
-    parts = [original_text[ps[i]:ps[i+1]] for i in range(len(ps)-1)] if length>10e5 else [original_text]
-    parts.append(original_text[ps[-1]:])
+    try :
+        ps = [i for i in range(0,length,(int(10e5)-1000))]
+        parts = [original_text[ps[i]:ps[i+1]] for i in range(len(ps)-1)] if length>10e5 else [original_text]
+        parts.append(original_text[ps[-1]:])
+    except Exception as e: 
+        print(e)
 
-    cleaned_text = ""
+
+    cleaned_text = "" 
     for part_text in parts:
         if part_text is None : continue
-        cleaned_text += clean_text_with_llm(part_text)
+        cleaned_text += clean_text_with_llm(part_text) or ""
     
     if cleaned_text:
         # Write to new file
@@ -133,31 +167,15 @@ def cleaner(bank_name):
         print("Cleaning complete. Check "+ filename)
 
 
+def main():
+    get_terms_raw()
 
-def update_md():
-    for bank in banks:
-        FILE_PATH = f"{bank}_output_cleaned.md"  # Path in Supabase Storage
-        NEW_FILE = rf"DATA\CLEANED\{bank}_output_cleaned.md"  # Local file to upload
-        try:
-            supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-            with open(NEW_FILE, "rb") as f:
-                upload_result = supabase.storage.from_(BUCKET_NAME).update(FILE_PATH, f,file_options={"cacheControl": "3600", "upsert": True})
-        except Exception as e:
-            print(f"Failed Uploading {FILE_PATH}")
+    for bank in banks :
+        cleaner(bank)
 
 
-
-if __name__ == "__main__":
-    while True:
-
-        get_terms_raw()
-
-        for bank in banks :
-            cleaner(bank)
-
-        update_md()    
-
-        time.sleep(60*MINUTES)
+main()
+        
 
 
 
